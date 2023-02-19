@@ -59,6 +59,44 @@ const Home: NextPage = () => {
           name="description"
           content="Számold ki mennyit romlott a forint értéke az évek során"
         />
+        <meta itemprop="name" content="Infláció kalkulátor" />
+        <meta
+          itemprop="description"
+          content="Számold ki mennyit romlott a forint értéke az évek során"
+        />
+        <meta
+          itemprop="image"
+          content="https://inflacio.robi.dev/og-image.jpg"
+        />
+
+        <meta property="og:url" content="https://inflacio.robi.dev" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Számold ki mennyit romlott a forint értéke az évek során"
+        />
+        <meta
+          property="og:description"
+          content="Számold ki mennyit romlott a forint értéke az évek során"
+        />
+        <meta
+          property="og:image"
+          content="https://inflacio.robi.dev/og-image.jpg"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Számold ki mennyit romlott a forint értéke az évek során"
+        />
+        <meta
+          name="twitter:description"
+          content="Számold ki mennyit romlott a forint értéke az évek során"
+        />
+        <meta
+          name="twitter:image"
+          content="https://inflacio.robi.dev/og-image.jpg"
+        ></meta>
         <link rel="icon" href="/favicon.ico" />
         <script
           async
