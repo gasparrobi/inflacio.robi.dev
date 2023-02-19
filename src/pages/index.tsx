@@ -59,13 +59,13 @@ const Home: NextPage = () => {
           name="description"
           content="Számold ki mennyit romlott a forint értéke az évek során"
         />
-        <meta itemprop="name" content="Infláció kalkulátor" />
+        <meta itemProp="name" content="Infláció kalkulátor" />
         <meta
-          itemprop="description"
+          itemProp="description"
           content="Számold ki mennyit romlott a forint értéke az évek során"
         />
         <meta
-          itemprop="image"
+          itemProp="image"
           content="https://inflacio.robi.dev/og-image.jpg"
         />
 
