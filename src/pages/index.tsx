@@ -71,10 +71,7 @@ const Home: NextPage = () => {
 
         <meta property="og:url" content="https://inflacio.robi.dev" />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Számold ki mennyit romlott a forint értéke az évek során"
-        />
+        <meta property="og:title" content="Infláció kalkulátor" />
         <meta
           property="og:description"
           content="Számold ki mennyit romlott a forint értéke az évek során"
@@ -85,10 +82,7 @@ const Home: NextPage = () => {
         />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Számold ki mennyit romlott a forint értéke az évek során"
-        />
+        <meta name="twitter:title" content="Infláció kalkulátor" />
         <meta
           name="twitter:description"
           content="Számold ki mennyit romlott a forint értéke az évek során"
