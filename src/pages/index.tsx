@@ -177,7 +177,7 @@ const Home: NextPage = () => {
                 rel="noopener noreferrer"
                 href={"https://www.ksh.hu/stadat_files/ara/hu/ara0045.html"}
               >
-                ksh magáninflációs adatbázisából{" "}
+                ksh maginflációs adatbázisából{" "}
               </Link>
               származnak.
             </div>
