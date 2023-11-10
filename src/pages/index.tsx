@@ -12,8 +12,12 @@ import { formatCurrency } from "../utils/formatCurrency";
 import { monthToHungarianMap } from "../constants";
 
 const years = inflation.map((item) => item.year).sort((a, b) => b - a);
-const months = Object.keys(inflation.at(-1)).filter((item) => item !== "year");
-const hungarianMonths = months.map((item) => monthToHungarianMap[item]);
+const months = Object.keys(inflation.at(-1) as InflationItem).filter(
+  (item) => item !== "year"
+);
+const hungarianMonths = months.map(
+  (item) => monthToHungarianMap[item]
+) as string[];
 
 const Home: NextPage = () => {
   const [selectedYear, setSelectedYear] = useState(2018);
@@ -23,7 +27,9 @@ const Home: NextPage = () => {
   const __inflation = inflation.find(
     (item) => item.year === selectedYear
   ) as InflationItem;
-  const selectedInflationValue = __inflation[selectedMonth] as number;
+  const selectedInflationValue = __inflation[
+    selectedMonth as keyof InflationItem
+  ] as number;
   const baseValue = (selectedAmount / selectedInflationValue) * 100;
 
   const _inflation = inflation.map((item) => {
@@ -51,8 +57,8 @@ const Home: NextPage = () => {
     setSelectedYear(Number(value));
   };
 
-  const handleMonthSelection = (value: number | string) => {
-    setSelectedMonth(getMonthValue(value));
+  const handleMonthSelection = (value: string | number) => {
+    setSelectedMonth(getMonthValue(value as string) as keyof InflationItem);
   };
 
   const getMonthValue = (value: string) =>
