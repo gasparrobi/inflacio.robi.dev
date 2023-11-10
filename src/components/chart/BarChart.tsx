@@ -40,7 +40,7 @@ const BarChart = ({
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       data={_payload}
-      keys={["january"]}
+      keys={["october"]}
       indexBy="year"
       margin={{ top: 50, right: 30, bottom: 50, left: 80 }}
       padding={0.3}
@@ -151,7 +151,7 @@ const BarChart = ({
             }}
           >
             <div className="font-bold">{e.data.year} - január</div>
-            <div>{formatCurrency(e.data.january as number)}</div>
+            <div>{formatCurrency(e.data.october as number)}</div>
           </div>
         );
       }}

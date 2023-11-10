@@ -16,31 +16,31 @@ const Home: NextPage = () => {
   const [selectedYear, setSelectedYear] = useState(2018);
   const [selectedAmount, setSelectedAmount] = useState(100_000);
 
-  const { january: selectedInflationValue } = inflation.find(
+  const { october: selectedInflationValue } = inflation.find(
     (item) => item.year === selectedYear
   ) as InflationItem;
   const baseValue = (selectedAmount / selectedInflationValue) * 100;
 
   const _inflation = inflation.map((item) => {
-    const { year, january } = item;
-    return { year, january: ((baseValue * january) / 100).toFixed() };
+    const { year, october } = item;
+    return { year, october: ((baseValue * october) / 100).toFixed() };
   }) as unknown as InflationItem[];
 
   const _valueDegradation = inflation.map((item) => {
-    const { year, january } = item;
+    const { year, october } = item;
 
     return {
       year,
-      january: (selectedAmount * (selectedInflationValue / january)).toFixed(),
+      october: (selectedAmount * (selectedInflationValue / october)).toFixed(),
     };
   }) as unknown as InflationItem[];
 
   const valueToday = _inflation.find((item) => item.year === 2023)
-    ?.january as number;
+    ?.october as number;
 
   const degradedValueToday = _valueDegradation.find(
     (item) => item.year === 2023
-  )?.january as number;
+  )?.october as number;
 
   const handleYearSelection = (value: number | string) => {
     setSelectedYear(Number(value));

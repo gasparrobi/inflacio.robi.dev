@@ -424,5 +424,14 @@ export const inflation: InflationItem[] = [
   {
     year: 2023,
     january: 566.8,
+    february: 573.2,
+    march: 581.8,
+    april: 588.1,
+    may: 591.1,
+    june: 593.1,
+    july: 594.3,
+    august: 595.5,
+    september: 594.5,
+    october: 596.1,
   },
 ];
