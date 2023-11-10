@@ -9,16 +9,21 @@ import { TextInput } from "../components/ui/TextInput";
 import Link from "next/link";
 import { Highlighted } from "../components/ui/Highlighted";
 import { formatCurrency } from "../utils/formatCurrency";
+import { monthToHungarianMap } from "../constants";
 
 const years = inflation.map((item) => item.year).sort((a, b) => b - a);
+const months = Object.keys(inflation.at(-1)).filter((item) => item !== "year");
+const hungarianMonths = months.map((item) => monthToHungarianMap[item]);
 
 const Home: NextPage = () => {
   const [selectedYear, setSelectedYear] = useState(2018);
+  const [selectedMonth, setSelectedMonth] = useState("october");
   const [selectedAmount, setSelectedAmount] = useState(100_000);
 
-  const { october: selectedInflationValue } = inflation.find(
+  const __inflation = inflation.find(
     (item) => item.year === selectedYear
   ) as InflationItem;
+  const selectedInflationValue = __inflation[selectedMonth] as number;
   const baseValue = (selectedAmount / selectedInflationValue) * 100;
 
   const _inflation = inflation.map((item) => {
@@ -45,6 +50,15 @@ const Home: NextPage = () => {
   const handleYearSelection = (value: number | string) => {
     setSelectedYear(Number(value));
   };
+
+  const handleMonthSelection = (value: number | string) => {
+    setSelectedMonth(getMonthValue(value));
+  };
+
+  const getMonthValue = (value: string) =>
+    Object.keys(monthToHungarianMap).find(
+      (item) => monthToHungarianMap[item] === value
+    );
 
   const onAmountChange = (event: React.SyntheticEvent) => {
     const value = (event.target as HTMLInputElement).value;
@@ -127,6 +141,11 @@ const Home: NextPage = () => {
                 options={years}
                 defaultValue={selectedYear}
                 onChange={handleYearSelection}
+              />{" "}
+              <DropdownSelector
+                options={hungarianMonths}
+                defaultValue={monthToHungarianMap[selectedMonth]}
+                onChange={handleMonthSelection}
               />{" "}
               <span className="font-bold text-white">
                 -ban/ben mennyit ér ma
