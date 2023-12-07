@@ -244,7 +244,7 @@ const Home: NextPage = (props: {
         ></script>
       </Head>
       {/* <main className="flex min-h-screen flex-col items-center  bg-gradient-to-b from-[#2e026d] to-[#15162c]"> */}
-      <main className="relative flex h-full min-h-screen flex-col items-center  bg-[#050b1c]">
+      <main className="dark relative flex h-full min-h-screen flex-col items-center  bg-[#050b1c]">
         <div className="absolute inset-0 z-0 bg-[url(/grid.svg)] bg-center [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>
         <div className="container z-10 flex flex-col items-center justify-center px-4 py-16 ">
           <div className=" flex min-h-[400px]  w-full  flex-col gap-20 ">
