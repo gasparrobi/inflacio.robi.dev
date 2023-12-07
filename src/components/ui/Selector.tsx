@@ -29,14 +29,14 @@ export function Selector({
           value={value}
           onValueChange={onValueChange}
           placeholder={placeholder}
-          className={isDisabled ? "opacity-30" : ""}
+          className={isDisabled ? "opacity-30" : "[&_input]:text-base"}
         >
           {!isDisabled &&
             options.map((item) => (
               <SearchSelectItem
                 key={item.code}
                 value={item.code}
-                className="cursor-pointer"
+                className="cursor-pointer [&>span]:text-base"
               >
                 {item.label}
               </SearchSelectItem>

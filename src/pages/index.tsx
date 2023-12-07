@@ -312,6 +312,7 @@ const Home: NextPage = (props: {
                     value={String(selectedYear)}
                     onValueChange={handleYearSelection}
                     enableClear={false}
+                    className="[&>button]:text-base"
                   >
                     {years.map((year) => (
                       <SelectItem value={String(year)} key={year}>
@@ -330,6 +331,7 @@ const Home: NextPage = (props: {
                     defaultValue="100000"
                     type={numberInputType}
                     onBlur={onAmountChange}
+                    className="[&>input]:text-base"
                   />
                 </div>
               </div>
