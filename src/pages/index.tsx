@@ -14,18 +14,15 @@ import moment from "moment";
 import axios, { type AxiosResponse } from "axios";
 import iconv from "iconv-lite";
 
-import BarChart, { type InflationItem } from "../components/chart/BarChart";
-import DropdownSelector from "../components/ui/DropdownSelector";
+import { type InflationItem } from "../components/chart/BarChart";
 import { inflation } from "../inflation";
 import { useState } from "react";
-import { TextInput } from "../components/ui/TextInput";
 import Link from "next/link";
 import { Highlighted } from "../components/ui/Highlighted";
 import {
   formatCurrency,
   formatCurrencyWithoutSymbol,
 } from "../utils/formatCurrency";
-import { monthToHungarianMap } from "../constants";
 import CardWithChart from "../components/chart/CardWithChart";
 import { Selector } from "../components/ui/Selector";
 
@@ -38,12 +35,6 @@ const valueFormatter = (number: number) =>
   `${formatCurrencyWithoutSymbol(number)} Ft`;
 
 const years = inflation.map((item) => item.year).sort((a, b) => b - a);
-const months = Object.keys(inflation.at(-1) as InflationItem).filter(
-  (item) => item !== "year"
-);
-const hungarianMonths = months.map(
-  (item) => monthToHungarianMap[item]
-) as string[];
 
 const TremorBarChart = (props: {
   chartData: { name: number; ["összeg"]: number }[];
@@ -122,15 +113,6 @@ const Home: NextPage = (props: {
   const handleYearSelection = (value: number | string) => {
     setSelectedYear(Number(value));
   };
-
-  const handleMonthSelection = (value: string | number) => {
-    setSelectedMonth(getMonthValue(value as string) as keyof InflationItem);
-  };
-
-  const getMonthValue = (value: string) =>
-    Object.keys(monthToHungarianMap).find(
-      (item) => monthToHungarianMap[item] === value
-    );
 
   const onAmountChange = (event: React.SyntheticEvent) => {
     const value = (event.target as HTMLInputElement).value;
