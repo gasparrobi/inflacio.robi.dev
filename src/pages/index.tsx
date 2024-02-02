@@ -74,7 +74,7 @@ const Home: NextPage = (props: {
   };
 }) => {
   const [latestMonth, latestInflation] = Object.entries(
-    inflation[inflation.length - 1]
+    inflation[inflation.length - 1] as InflationItem
   ).pop() as [string, number];
 
   const [selectedYear, setSelectedYear] = useState(2018);
@@ -95,30 +95,30 @@ const Home: NextPage = (props: {
 
   const _inflation = inflation.map((item) => {
     const year = item.year;
-    const month = item[selectedMonth as keyof InflationItem];
+    const month = item[selectedMonth as keyof InflationItem] as number;
     return { year, [selectedMonth]: ((baseValue * month) / 100).toFixed() };
   }) as unknown as InflationItem[];
 
   const _valueDegradation = inflation.map((item) => {
     const { year } = item;
-    const month = item[selectedMonth as keyof InflationItem];
+    const month = item[selectedMonth as keyof InflationItem] as number;
 
     return {
       year,
       [selectedMonth]: (
         selectedAmount *
-        (selectedInflationValue / month)
+        ((selectedInflationValue / month) * 100)
       ).toFixed(),
     };
   }) as unknown as InflationItem[];
 
   const valueToday = _inflation.find((item) => item.year === 2023)?.[
-    selectedMonth
+    selectedMonth as keyof InflationItem
   ] as number;
 
   const degradedValueToday = _valueDegradation.find(
     (item) => item.year === 2023
-  )?.[selectedMonth] as number;
+  )?.[selectedMonth as keyof InflationItem] as number;
 
   const handleYearSelection = (value: number | string) => {
     setSelectedYear(Number(value));
@@ -131,13 +131,13 @@ const Home: NextPage = (props: {
 
   const chartData = _inflation.map((item) => {
     const { year } = item;
-    const month = item[selectedMonth] as string;
+    const month = item[selectedMonth as keyof InflationItem] as number;
     return { name: year, ["összeg"]: Number(month) };
   });
 
   const degradationChartData = _valueDegradation.map((item) => {
     const { year } = item;
-    const month = item[selectedMonth] as string;
+    const month = item[selectedMonth as keyof InflationItem] as number;
     return { name: year, ["összeg"]: Number(month) };
   });
 
