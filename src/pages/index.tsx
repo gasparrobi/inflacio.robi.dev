@@ -73,8 +73,12 @@ const Home: NextPage = (props: {
     dates: string[];
   };
 }) => {
+  const [latestMonth, latestInflation] = Object.entries(
+    inflation[inflation.length - 1]
+  ).pop() as [string, number];
+
   const [selectedYear, setSelectedYear] = useState(2018);
-  const [selectedMonth, setSelectedMonth] = useState("october");
+  const [selectedMonth, setSelectedMonth] = useState(latestMonth);
   const [selectedAmount, setSelectedAmount] = useState(100_000);
   const [selectedPrimaryItem, setSelectedPrimaryItem] = useState("");
   const [selectedSecondaryItem, setSelectedSecondaryItem] = useState("");
@@ -90,25 +94,31 @@ const Home: NextPage = (props: {
   const baseValue = (selectedAmount / selectedInflationValue) * 100;
 
   const _inflation = inflation.map((item) => {
-    const { year, october } = item;
-    return { year, october: ((baseValue * october) / 100).toFixed() };
+    const year = item.year;
+    const month = item[selectedMonth as keyof InflationItem];
+    return { year, [selectedMonth]: ((baseValue * month) / 100).toFixed() };
   }) as unknown as InflationItem[];
 
   const _valueDegradation = inflation.map((item) => {
-    const { year, october } = item;
+    const { year } = item;
+    const month = item[selectedMonth as keyof InflationItem];
 
     return {
       year,
-      october: (selectedAmount * (selectedInflationValue / october)).toFixed(),
+      [selectedMonth]: (
+        selectedAmount *
+        (selectedInflationValue / month)
+      ).toFixed(),
     };
   }) as unknown as InflationItem[];
 
-  const valueToday = _inflation.find((item) => item.year === 2023)
-    ?.october as number;
+  const valueToday = _inflation.find((item) => item.year === 2023)?.[
+    selectedMonth
+  ] as number;
 
   const degradedValueToday = _valueDegradation.find(
     (item) => item.year === 2023
-  )?.october as number;
+  )?.[selectedMonth] as number;
 
   const handleYearSelection = (value: number | string) => {
     setSelectedYear(Number(value));
@@ -120,13 +130,15 @@ const Home: NextPage = (props: {
   };
 
   const chartData = _inflation.map((item) => {
-    const { year, october } = item;
-    return { name: year, ["összeg"]: Number(october) };
+    const { year } = item;
+    const month = item[selectedMonth] as string;
+    return { name: year, ["összeg"]: Number(month) };
   });
 
   const degradationChartData = _valueDegradation.map((item) => {
-    const { year, october } = item;
-    return { name: year, ["összeg"]: Number(october) };
+    const { year } = item;
+    const month = item[selectedMonth] as string;
+    return { name: year, ["összeg"]: Number(month) };
   });
 
   const options = props.data.data.map((item) => {
