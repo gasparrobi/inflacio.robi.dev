@@ -107,7 +107,7 @@ const Home: NextPage = (props: {
       year,
       [selectedMonth]: (
         selectedAmount *
-        ((selectedInflationValue / month) * 100)
+        ((selectedInflationValue / month))
       ).toFixed(),
     };
   }) as unknown as InflationItem[];
