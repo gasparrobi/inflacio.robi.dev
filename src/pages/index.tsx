@@ -107,17 +107,17 @@ const Home: NextPage = (props: {
       year,
       [selectedMonth]: (
         selectedAmount *
-        ((selectedInflationValue / month))
+        (selectedInflationValue / month)
       ).toFixed(),
     };
   }) as unknown as InflationItem[];
 
-  const valueToday = _inflation.find((item) => item.year === 2023)?.[
+  const valueToday = _inflation.find((item) => item.year === 2024)?.[
     selectedMonth as keyof InflationItem
   ] as number;
 
   const degradedValueToday = _valueDegradation.find(
-    (item) => item.year === 2023
+    (item) => item.year === 2024
   )?.[selectedMonth as keyof InflationItem] as number;
 
   const handleYearSelection = (value: number | string) => {

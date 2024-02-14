@@ -436,4 +436,8 @@ export const inflation: InflationItem[] = [
     november: 598.1,
     december: 599.1,
   },
+  {
+    year: 2024,
+    january: 601.2,
+  },
 ];
