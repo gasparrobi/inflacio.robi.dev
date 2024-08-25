@@ -236,6 +236,11 @@ const Home: NextPage = (props: {
           data-website-id={process.env.STATS_WEBSITE_ID}
           src={process.env.STATS_URL}
         ></script>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3942185829907961"
+          crossorigin="anonymous"
+        ></script>
       </Head>
       {/* <main className="flex min-h-screen flex-col items-center  bg-gradient-to-b from-[#2e026d] to-[#15162c]"> */}
       <main className="dark relative flex h-full min-h-screen flex-col items-center  bg-[#050b1c]">
