@@ -239,7 +239,7 @@ const Home: NextPage = (props: {
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3942185829907961"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
       </Head>
       {/* <main className="flex min-h-screen flex-col items-center  bg-gradient-to-b from-[#2e026d] to-[#15162c]"> */}
