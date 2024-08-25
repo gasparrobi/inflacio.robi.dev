@@ -439,5 +439,11 @@ export const inflation: InflationItem[] = [
   {
     year: 2024,
     january: 601.2,
+    february: 602.5,
+    march: 607.4,
+    april: 612,
+    may: 614.7,
+    june: 617.5,
+    july: 622.1,
   },
 ];
