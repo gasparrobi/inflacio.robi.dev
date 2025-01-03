@@ -445,5 +445,9 @@ export const inflation: InflationItem[] = [
     may: 614.7,
     june: 617.5,
     july: 622.1,
+    august: 623.1,
+    september: 623,
+    october: 622.7,
+    november: 624.2,
   },
 ];
