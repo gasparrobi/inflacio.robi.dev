@@ -28,12 +28,12 @@ export default function CardWithChart({
   minYear?: number;
   className?: string;
 }) {
-  const prices = data.prices
+  const prices = (data?.prices ?? [])
     .map((item) => {
       return { date: item.date, ["ár"]: item.value };
     })
-    .filter((item) => item["ár"] > 0)
-    .filter((item) => Number(item.date) >= minYear);
+    .filter((item) => item?.["ár"] > 0)
+    .filter((item) => Number(item?.date) >= minYear);
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore prices possibly undefined

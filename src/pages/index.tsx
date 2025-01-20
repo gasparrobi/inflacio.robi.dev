@@ -152,7 +152,7 @@ const Home: NextPage = (props: {
     item.label.toLowerCase().startsWith("tojás")
   ) as InflationData;
   const beer = props.data.data.find((item) =>
-    item.label.toLowerCase().startsWith("világos sör")
+    item.label.toLowerCase().startsWith("sör")
   ) as InflationData;
 
   const dateOptions = props.data.dates
@@ -235,6 +235,11 @@ const Home: NextPage = (props: {
           defer
           data-website-id={process.env.STATS_WEBSITE_ID}
           src={process.env.STATS_URL}
+        ></script>
+        <script
+          defer
+          data-domain="inflacio.robi.dev"
+          src="https://whatever.robi.dev/js/script.hash.js"
         ></script>
         <script
           async
@@ -460,6 +465,9 @@ export const getStaticProps = async () => {
         },
       });
     });
+
+    console.log(111);
+    console.log(data);
 
     // Return the parsed data as props
     return {
