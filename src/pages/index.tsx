@@ -236,11 +236,11 @@ const Home: NextPage = (props: {
           data-website-id={process.env.STATS_WEBSITE_ID}
           src={process.env.STATS_URL}
         ></script>
-        <script
+        {/* <script
           defer
           data-domain="inflacio.robi.dev"
           src="https://whatever.robi.dev/js/script.hash.js"
-        ></script>
+        ></script> */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3942185829907961"
