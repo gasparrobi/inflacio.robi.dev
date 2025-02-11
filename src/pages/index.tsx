@@ -112,12 +112,12 @@ const Home: NextPage = (props: {
     };
   }) as unknown as InflationItem[];
 
-  const valueToday = _inflation.find((item) => item.year === 2024)?.[
+  const valueToday = _inflation.find((item) => item.year === 2025)?.[
     selectedMonth as keyof InflationItem
   ] as number;
 
   const degradedValueToday = _valueDegradation.find(
-    (item) => item.year === 2024
+    (item) => item.year === 2025
   )?.[selectedMonth as keyof InflationItem] as number;
 
   const handleYearSelection = (value: number | string) => {
