@@ -25,5 +25,15 @@ const config = {
     STATS_URL: process.env.STATS_URL,
     STATS_WEBSITE_ID: process.env.STATS_WEBSITE_ID,
   },
+
+  redirects: async () => {
+    return [
+      {
+        source: "/",
+        destination: "https://statmonitor.hu/inflacio-kalkulator",
+        permanent: true,
+      },
+    ];
+  },
 };
 export default config;
